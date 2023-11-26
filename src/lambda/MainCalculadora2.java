@@ -4,6 +4,7 @@ public class MainCalculadora2 {
 
     public static void main(String[] args) {
 
+        Calculo sub = new Somar();
         //expressão lambda
         Calculo calcSoma = (a, b) -> {
             return a + b;
@@ -22,6 +23,8 @@ public class MainCalculadora2 {
         Calculo calcSub = (x, y) -> x - y;
 
         System.out.println(calcSub.executar(10, 5));
+        System.out.println("*");
 
+        System.out.println(sub.hello() + Calculo.world());
     }
 }
