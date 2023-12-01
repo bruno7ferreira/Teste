@@ -21,11 +21,15 @@ public class ForEach {
         for (String car : carros) {
             System.out.println(car);
         }
+        System.out.println("---------");
+        listaCarros.forEach((cont) -> {
+            System.out.println(cont);
+        });
+        System.out.println("---------");
 
-        for (String c : listaCarros) {
-            System.out.println(c);
-        }
-
+        listaCarros.forEach(cont -> System.out.println(cont));
+        System.out.println("---------");
+        listaCarros.forEach(System.out::println);
 
     }
 
