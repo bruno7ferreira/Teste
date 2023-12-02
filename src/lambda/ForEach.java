@@ -27,6 +27,8 @@ public class ForEach {
         System.out.println("Por referencia");
         carros.forEach(System.out::println);
 
+        // por referencia usando um metodo externo
+        carros.forEach(cont -> meuImprimir(cont + "*"));
     }
 
     static void meuImprimir(String car) {
