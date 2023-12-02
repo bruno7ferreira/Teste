@@ -1,6 +1,5 @@
 package lambda;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,28 +7,29 @@ public class ForEach {
 
     public static void main(String[] args) {
 
-        List<String> listaCarros = new ArrayList<>();
-        listaCarros.add("lexus");
-        listaCarros.add("gtr");
-        listaCarros.add("Amarok");
-        listaCarros.add("seal");
-
-//        System.out.println(listaCarros);
 
         List<String> carros = Arrays.asList("Lexus", "Seal", "GTR", "Hilux");
 
+        System.out.println("Tradicional");
         for (String car : carros) {
             System.out.println(car);
         }
-        System.out.println("---------");
-        listaCarros.forEach((cont) -> {
-            System.out.println(cont);
-        });
-        System.out.println("---------");
 
-        listaCarros.forEach(cont -> System.out.println(cont));
+        System.out.println("ForEach 1");
         System.out.println("---------");
-        listaCarros.forEach(System.out::println);
+        carros.forEach((car) -> {
+            System.out.println(car);
+        });
+
+        System.out.println("ForEach 2");
+        carros.forEach(car -> System.out.println(car));
+
+        System.out.println("Por referencia");
+        carros.forEach(System.out::println);
+
+        static void meuImprimir (String car){
+            System.out.println("Meu carro é " + car);
+        }
 
     }
 
