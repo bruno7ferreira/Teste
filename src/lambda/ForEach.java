@@ -27,10 +27,10 @@ public class ForEach {
         System.out.println("Por referencia");
         carros.forEach(System.out::println);
 
-//        static void meuImprimir (String car){
-//            System.out.println("Meu carro é " + car);
-//        }
+    }
 
+    static void meuImprimir(String car) {
+        System.out.println("Meu carro é " + car);
     }
 
 }
