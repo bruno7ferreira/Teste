@@ -8,7 +8,7 @@ public class TestePratica {
 
         Produto p7 = new Produto("MacBook M1", 6000.00, 0.10);
 
-        Predicate<Produto> isCaro = x -> (x.preco * (1 - x.desconto)) > 6500.00;
+        Predicate<Produto> isCaro = x -> (x.preco * (1 - x.desconto)) > 7500.00;
         System.out.println(isCaro.test(p7));
     }
 }
