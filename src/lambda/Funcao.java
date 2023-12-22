@@ -14,9 +14,17 @@ public class Funcao {
         Function<String, String> oResultadoE =
                 v -> "O resultado é: " + v;
 
+        Function<String, String> empolgado =
+                x -> x + "!!";
+
+        Function<String, String> duvida =
+                d -> d + "??";
 
         String resultadoFinal =
-                parOrImpar.andThen(oResultadoE).apply(24);
+                parOrImpar.andThen(oResultadoE)
+                        .andThen(empolgado)
+                        .andThen(duvida)
+                        .apply(24);
 
         System.out.println(resultadoFinal);
 
