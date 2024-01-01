@@ -16,5 +16,10 @@ public class PredicadoComposicao {
 
         System.out.println(isPar.and(isTresDigitos).test(144));
 
+        Predicate<Double> isCheap =
+                x -> x < 100;
+
+        System.out.println("Barato: " + isCheap.test(98.0));
+
     }
 }

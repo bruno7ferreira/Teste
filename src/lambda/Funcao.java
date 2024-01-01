@@ -28,5 +28,11 @@ public class Funcao {
 
         System.out.println(resultadoFinal);
 
+
+        Function<Integer, Integer> sum =
+                x -> x + 10;
+
+        System.out.println("Sum the x: " + sum.apply(27));
+
     }
 }

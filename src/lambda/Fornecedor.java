@@ -25,7 +25,24 @@ public class Fornecedor {
 
 
         Supplier<List<Integer>> listaIdade =
-                () -> Arrays.asList(110,120);
+                () -> Arrays.asList(110, 120);
         System.out.println(listaIdade.get());
+
+
+        List<Integer> numsMega = Arrays.asList(7, 14);
+        System.out.println("mega: " + numsMega);
+
+        Supplier<String> name = () -> "Texto do supplier \n _________";
+
+        Supplier<List<String>> goals =
+                () -> Arrays.asList("house", "business", "trip", "cars");
+
+        System.out.println(goals.get());
+
+        Supplier<List<String>> teste = () -> Arrays.asList("Bruno");
+
+        System.out.println(teste.get() + " 7 \n" + " ok");
+
     }
+
 }
