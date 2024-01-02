@@ -21,7 +21,7 @@ public class Fornecedor {
         Supplier<Double> dinheiro =
                 () -> 545000000.00;
 
-        System.out.println(dinheiro.get());
+        System.out.println("Grana "+dinheiro.get());
 
 
         Supplier<List<Integer>> listaIdade =
