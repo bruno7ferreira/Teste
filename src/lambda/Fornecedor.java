@@ -8,6 +8,8 @@ public class Fornecedor {
 
     public static void main(String[] args) {
 
+        // supplier = Não recebe nenhum argumento, mas fornece um resultado do tipo especificado.
+
         Supplier<List<String>> listaCarros =
                 () -> Arrays.asList("Gol", "Bravo", "GTR");
         System.out.println(listaCarros.get());

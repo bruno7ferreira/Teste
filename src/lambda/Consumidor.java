@@ -6,6 +6,8 @@ public class Consumidor {
 
     public static void main(String[] args) {
 
+        // consumer = aceita um argumento do tipo especificado e não retorna nenhum resultado.
+
         Consumer<Produto> imprimir = x -> System.out.println(x.nome);
 
 

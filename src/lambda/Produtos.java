@@ -45,7 +45,7 @@ public class Produtos {
         return precoFrete;
     }
 
-    // construtor
+    // método toString
     @Override
     public String toString() {
         return "Produtos{" +
