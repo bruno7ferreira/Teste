@@ -12,47 +12,18 @@ public class Desafio {
 
         Produtos p1 = new Produtos("Casa", 400000.00, 0.25);
 
+        Produtos p2 = new Produtos("Lexus",300000.50,0.15);
+
         Double valor = p1.getPreco();
-        // Criar um objeto BigDecimal
-        BigDecimal valorDecimal = new BigDecimal(valor);
 
-        // Aplicar o arredondamento
-//        BigDecimal numeroArredondado = valorDecimal.setScale(2, RoundingMode.HALF_UP);
-//
-//        System.out.println(numeroArredondado);
+        Supplier<String> finalTotal = () -> "R$ " + formatarValor(valor);
 
-        Consumer<Produtos> produtoCustoTotal =
-                x -> {
-                    BigDecimal numeroArredondado2 = valorDecimal.setScale(2, RoundingMode.HALF_UP);
-                    System.out.println(numeroArredondado2);
-                };
+        System.out.println("O valor final é " + finalTotal.get());  // Exibe R$ 400000,00
 
-        System.out.println("-----");
-        produtoCustoTotal.accept(p1);
+    }
 
-        Consumer<Produtos> valorFinal =
-                x -> {
-                    DecimalFormat formato = new DecimalFormat("#,##");
-                    String numeroFormatado = formato.format(valor);
-                };
-
-        Supplier<String> finalTotal =
-                () -> "R$ " + valorFinal;
-
-        System.out.println("----");
-        finalTotal.get();
-//        Supplier<Produtos> valorFinal =
-//                () -> "";
-//
-
-//        double numero = 123.456789;
-//
-//        // Criar um objeto DecimalFormat
-//        DecimalFormat formato = new DecimalFormat("#.##");
-//
-//        // Aplicar o arredondamento
-//        String numeroFormatado = formato.format(numero);
-
-
+    private static String formatarValor(double valor) {
+        DecimalFormat formato = new DecimalFormat("#,##0.00");
+        return formato.format(valor);
     }
 }
