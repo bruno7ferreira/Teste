@@ -1,6 +1,7 @@
 package lambda;
 
 import java.text.DecimalFormat;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class Desafio {
@@ -8,7 +9,6 @@ public class Desafio {
     public static void main(String[] args) {
 
         Produtos p1 = new Produtos("Casa", 400000.00, 0.25);
-
         Produtos p2 = new Produtos("Lexus", 300000.50, 0.15);
 
         Double valor = p1.getPreco();

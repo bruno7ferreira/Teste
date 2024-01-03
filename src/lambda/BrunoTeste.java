@@ -1,33 +1,44 @@
 package lambda;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 public class BrunoTeste {
 
     public static void main(String[] args) {
 
 
-        Produto p1 = new Produto("Casa", 300.00, 0.10);
-        Produto p2 = new Produto("GTR", 700.00, 0.15);
-        Produto p3 = new Produto("Mansão", 1300.00, 0.5);
+        Produtos p1 = new Produtos("Lexus", 300000.50, 0.15);
 
-        List<Produto> produtosB = new ArrayList<>(List.of(p1, p2, p3));
+        //preco - (preco * desconto)
+        Function<Produtos, Double> precoFinal = x -> x.getPreco() - (x.getPreco() * x.getDesconto());
 
-        produtosB.forEach(x -> System.out.println(x.nome));
+        // precoComDesconto * 0.085;  // 8,5% de imposto
+        UnaryOperator<Double> impostoMunicipal = x -> x >= 2500 ? x * 0.085 : x;
 
-        Predicate<Produto> isCaro = x -> x.preco >= 500;
+        // frete >= 3000 se não frete /2
+        UnaryOperator<Double> frete = x -> x >= 3000 ? x : x / 2;
 
-        System.out.println("------");
-        Consumer<Produto> produtos = x -> System.out.println("Nome " + x.nome + " R$ ->" + x.preco + " 'Desconto'" + x.desconto);
-        produtos.accept(p1);
+        // arredondando o número
+        UnaryOperator<Double> arredondar = x -> {
+            BigDecimal valorDecimal = new BigDecimal(x);
+            BigDecimal numeroArredondado = valorDecimal.setScale(2, RoundingMode.HALF_UP);
+            return numeroArredondado.doubleValue();
+        };
+        // DecimalFormat formato = new DecimalFormat("#,##0.00");
+        //        return formato.format(valor);
+        Function<Double, String> formatar;
 
+        String preco = precoFinal
+                .andThen(impostoMunicipal)
+                .andThen(frete)
+                .andThen(arredondar)
+                .andThen(formatar)
+                .apply(p1);
 
-        Consumer<Produto> fac = y -> System.out.println(y.nome);
-        fac.accept(p2);
-
+        System.out.println("O preço final é " + preco);
 
 
     }
