@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Produtos {
 
     //atributos
-    private String nome;
+    private final String nome;
     private Double preco;
     private Double desconto;
 
@@ -18,9 +18,31 @@ public class Produtos {
     }
 
     // Método para calcular o preço real com desconto
-    public Double precoComDesconto() {
+    public Double calcularPrecoComDesconto() {
         double precoComDesconto = preco - (preco * desconto);
-        return 0.0;
+        return precoComDesconto;
+    }
+
+    // Método para calcular o imposto municipal
+    public double calcularImpostoMunicipal() {
+        double precoComDesconto = calcularPrecoComDesconto();
+
+        if (precoComDesconto >= 2500) {
+            return precoComDesconto * 0.085;  // 8,5% de imposto
+        } else {
+            return 0;  // Isento de imposto
+        }
+    }
+
+    // Método para calcular frete
+    public double calcularFrete(double valor) {
+        double precoFrete = valor;
+        if (preco >= 3000) {
+            precoFrete = valor;
+        } else {
+            precoFrete = valor / 2;
+        }
+        return precoFrete;
     }
 
     // construtor
@@ -50,10 +72,6 @@ public class Produtos {
     // get and set
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public Double getPreco() {
