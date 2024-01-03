@@ -2,6 +2,7 @@ package lambda;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -29,7 +30,10 @@ public class BrunoTeste {
         };
         // DecimalFormat formato = new DecimalFormat("#,##0.00");
         //        return formato.format(valor);
-        Function<Double, String> formatar;
+        Function<Double, String> formatar = x -> {
+            DecimalFormat formato = new DecimalFormat("#,##0.00");
+            return formato.format(x);
+        };
 
         String preco = precoFinal
                 .andThen(impostoMunicipal)
@@ -39,7 +43,6 @@ public class BrunoTeste {
                 .apply(p1);
 
         System.out.println("O preço final é " + preco);
-
 
     }
 }
