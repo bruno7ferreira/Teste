@@ -18,6 +18,7 @@ public class ImprimindoObjetos {
             System.out.println(x);
         }
 
+
         System.out.println("-------------");
 
         // usando Iterator
@@ -37,7 +38,9 @@ public class ImprimindoObjetos {
         Stream<String> listCars = cars.stream();
         listCars.forEach(System.out::println);
 
-
+        System.out.println("===");
+        Stream<String> bb = aprovados.stream();
+        bb.forEach(System.out::println);
 
 
     }
