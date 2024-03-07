@@ -3,6 +3,7 @@ package streams;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class ImprimindoObjetos {
@@ -11,6 +12,10 @@ public class ImprimindoObjetos {
 
         List<String> aprovados = Arrays.asList("Bruno", "Maria CLara", "Alexandra", "Lucicleia",
                 "Paulo Marcello", "Clara Luanny", "Gustavo");
+
+        for (int i = 0; i < aprovados.size(); i++) {
+            System.out.println(aprovados.get(i));
+        }
 
 
         // usando forEach
@@ -39,8 +44,9 @@ public class ImprimindoObjetos {
         listCars.forEach(System.out::println);
 
         System.out.println("===");
+        Consumer<String> print = System.out::println;
         Stream<String> bb = aprovados.stream();
-        bb.forEach(System.out::println);
+        bb.forEach(print);
 
 
     }
