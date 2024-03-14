@@ -13,6 +13,9 @@ public class ImprimindoObjetos {
         List<String> aprovados = Arrays.asList("Bruno", "Maria CLara", "Alexandra", "Lucicleia",
                 "Paulo Marcello", "Clara Luanny", "Gustavo");
 
+        Stream<String> br = aprovados.stream();
+        br.forEach(System.out::println);
+
         for (int i = 0; i < aprovados.size(); i++) {
             System.out.println(aprovados.get(i));
         }
@@ -25,6 +28,12 @@ public class ImprimindoObjetos {
 
 
         System.out.println("-------------");
+
+        Iterator<String> xx = aprovados.iterator();
+        while (xx.hasNext()) {
+            System.out.println(xx.next());
+        }
+
 
         // usando Iterator
         Iterator<String> x = aprovados.iterator();
